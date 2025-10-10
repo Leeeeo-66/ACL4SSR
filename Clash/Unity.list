@@ -1,0 +1,78 @@
+# Unity.list
+# 用途：强制代理 Unity 编辑器、Hub、包管理、许可验证、下载与相关服务
+# 作者：Jess
+# 更新时间：2025-10-10
+# 规则格式：DOMAIN-SUFFIX / DOMAIN-KEYWORD / DOMAIN-REGEX / PROCESS-NAME
+# 推荐策略组：🎯 Unity Proxy（需在配置文件中定义）
+
+# -----------------------------
+# Unity 主域名
+# -----------------------------
+DOMAIN-SUFFIX,unity.com
+DOMAIN-SUFFIX,unity3d.com
+DOMAIN-SUFFIX,unity3dusercontent.com
+
+# -----------------------------
+# 包管理与下载服务
+# -----------------------------
+DOMAIN-SUFFIX,packages.unity.com
+DOMAIN-SUFFIX,packages-cdn.unity3d.com
+DOMAIN-SUFFIX,download.unity3d.com
+DOMAIN-SUFFIX,netstorage.unity3d.com
+DOMAIN-SUFFIX,public-cdn.cloud.unity3d.com
+DOMAIN-SUFFIX,content-storage.unity3d.com
+DOMAIN-SUFFIX,packagecloud.io
+
+# -----------------------------
+# 授权与服务 API
+# -----------------------------
+DOMAIN-SUFFIX,license.unity.com
+DOMAIN-SUFFIX,license.unity3d.com
+DOMAIN-SUFFIX,api.unity.com
+DOMAIN-SUFFIX,services.unity.com
+DOMAIN-SUFFIX,accounts.unity.com
+DOMAIN-SUFFIX,auth.unity.com
+DOMAIN-SUFFIX,analytics.cloud.unity3d.com
+DOMAIN-SUFFIX,collab.unity.com
+DOMAIN-SUFFIX,package-manager.unity.com
+
+# -----------------------------
+# CDN 与下载加速域（常见第三方）
+# -----------------------------
+DOMAIN-SUFFIX,akamaized.net
+DOMAIN-SUFFIX,akamaitechnologies.com
+DOMAIN-SUFFIX,cloudfront.net
+DOMAIN-SUFFIX,fastly.net
+DOMAIN-SUFFIX,edgesuite.net
+DOMAIN-SUFFIX,edgekey.net
+DOMAIN-SUFFIX,jsdelivr.net
+
+# -----------------------------
+# 关键词匹配（用于捕捉变体域名）
+# -----------------------------
+DOMAIN-KEYWORD,unity
+DOMAIN-KEYWORD,unitypackage
+DOMAIN-KEYWORD,unitycdn
+DOMAIN-KEYWORD,unityhub
+DOMAIN-KEYWORD,editor.unity
+DOMAIN-KEYWORD,unitydl
+
+# -----------------------------
+# 正则匹配（用于捕捉子域与版本号）
+# -----------------------------
+DOMAIN-REGEX,.*editor[-0-9\.]*\.unity3d\.com
+DOMAIN-REGEX,.*package.*\.unity3d\.com
+DOMAIN-REGEX,.*(cdn|download|netstorage|storage).*(unity|unity3d)\.(com|net)
+
+# -----------------------------
+# 进程匹配（部分客户端支持）
+# -----------------------------
+PROCESS-NAME,Unity
+PROCESS-NAME,UnityHub
+PROCESS-NAME,com.unity3d.Player
+
+# -----------------------------
+# 可选：拦截上报（谨慎使用）
+# -----------------------------
+#DOMAIN-SUFFIX,analytics.unity.com
+#DOMAIN-SUFFIX,telemetry.unity3d.com
